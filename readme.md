@@ -1,3 +1,70 @@
+
+## API Endpoints
+
+- `GET /api/products` - Fetch products with optional filters (name, minPrice, maxPrice, inStock)
+- `POST /api/cart` - Add a product to the cart
+- `GET /api/cart` - View the current cart
+- `POST /api/checkout` - Place an order
+- `GET /api/orders` - Fetch past orders with optional date range filtering
+
+## Setup and Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the server:
+   ```
+   node index.js
+   ```
+4. The API will be available at `http://localhost:3000`
+
+## Sample Data
+
+To load sample data into the database:
+```
+node populateData.js
+```
+
+## API Usage Examples
+
+### Get all products
+```
+GET /api/products
+```
+
+### Get products with filters
+```
+GET /api/products?minPrice=100&maxPrice=500&inStock=true
+```
+
+### Add product to cart
+```
+POST /api/cart
+Content-Type: application/json
+
+{
+  "product_id": "product_id_here",
+  "quantity": 2
+}
+```
+
+### View cart
+```
+GET /api/cart
+```
+
+### Place an order
+```
+POST /api/checkout
+```
+
+### Get order history with date range
+```
+GET /api/orders?startDate=2023-01-01&endDate=2023-12-31
+```
+
 ### 1. GET /products - Fetch products with filters
 
 This curl command fetches all products or allows filtering based on name, price range, and stock availability.
